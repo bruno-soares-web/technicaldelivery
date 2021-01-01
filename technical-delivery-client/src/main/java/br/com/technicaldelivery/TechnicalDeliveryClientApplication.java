@@ -1,4 +1,4 @@
-package com.technicaldelivery;
+package br.com.technicaldelivery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
