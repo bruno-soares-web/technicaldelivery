@@ -1,13 +1,12 @@
-package br.com.technicaldelivery;
+package br.com.erudio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TechnicalDeliveryClientApplication {
+public class Startup {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TechnicalDeliveryClientApplication.class, args);
+		SpringApplication.run(Startup.class, args);
 	}
-
 }
