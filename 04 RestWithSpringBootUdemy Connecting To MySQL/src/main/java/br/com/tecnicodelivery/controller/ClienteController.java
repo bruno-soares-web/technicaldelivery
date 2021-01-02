@@ -1,4 +1,4 @@
-package br.com.erudio.controller;
+package br.com.tecnicodelivery.controller;
 
 import java.util.List;
 
@@ -13,34 +13,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.erudio.model.Person;
-import br.com.erudio.services.PersonServices;
+import br.com.tecnicodelivery.model.Cliente;
+import br.com.tecnicodelivery.services.ClienteServices;
 
 @RestController
-@RequestMapping("/person")
-public class PersonController {
+@RequestMapping("/cliente")
+public class ClienteController {
 	
 	@Autowired
-	private PersonServices service;
+	private ClienteServices service;
 	
 	@GetMapping
-	public List<Person> findAll() {
+	public List<Cliente> findAll() {
 		return service.findAll();
 	}	
 	
 	@GetMapping("/{id}")
-	public Person findById(@PathVariable("id") Long id) {
+	public Cliente findById(@PathVariable("id") Long id) {
 		return service.findById(id);
 	}	
 	
 	@PostMapping
-	public Person create(@RequestBody Person person) {
-		return service.create(person);
+	public Cliente create(@RequestBody Cliente cliente) {
+		return service.create(cliente);
 	}
 	
 	@PutMapping
-	public Person update(@RequestBody Person person) {
-		return service.update(person);
+	public Cliente update(@RequestBody Cliente cliente) {
+		return service.update(cliente);
 	}	
 	
 	@DeleteMapping("/{id}")

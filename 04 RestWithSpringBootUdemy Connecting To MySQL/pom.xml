@@ -8,7 +8,7 @@
   </parent>
   
   <groupId>br.com.erudio</groupId>
-  <artifactId>rest-with-springboot-udemy</artifactId>
+  <artifactId>tecnico-delivery-cliente</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   
