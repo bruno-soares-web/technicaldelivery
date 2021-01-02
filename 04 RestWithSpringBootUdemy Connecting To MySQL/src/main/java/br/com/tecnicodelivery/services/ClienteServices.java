@@ -33,10 +33,16 @@ public class ClienteServices {
 		Cliente entity = repository.findById(cliente.getId())
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 		
-		entity.setFirstName(cliente.getFirstName());
-		entity.setLastName(cliente.getLastName());
-		entity.setAddress(cliente.getAddress());
-		entity.setGender(cliente.getGender());
+		entity.setNome(cliente.getNome());
+		entity.setEndereco(cliente.getEndereco());
+		entity.setTelefone(cliente.getTelefone());
+		entity.setIdade(cliente.getIdade());
+		entity.setSexo(cliente.getSexo());
+		entity.setDataCadastro(cliente.getDataCadastro());
+		entity.setRG(cliente.getRG());
+		entity.setCPF(cliente.getCPF());
+		entity.setDataNascimento(cliente.getDataNascimento());
+		entity.setEmail(cliente.getEmail());
 		
 		return repository.save(entity);
 	}	
