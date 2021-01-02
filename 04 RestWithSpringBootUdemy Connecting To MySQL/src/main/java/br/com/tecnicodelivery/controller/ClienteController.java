@@ -2,6 +2,8 @@ package br.com.tecnicodelivery.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,7 +36,7 @@ public class ClienteController {
 	}	
 	
 	@PostMapping
-	public Cliente create(@RequestBody Cliente cliente) {
+	public Cliente create(@RequestBody @Valid Cliente cliente) {
 		return service.create(cliente);
 	}
 	

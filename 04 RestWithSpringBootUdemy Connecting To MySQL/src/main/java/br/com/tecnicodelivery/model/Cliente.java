@@ -9,6 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 
 
 @Entity
@@ -20,38 +25,51 @@ public class Cliente implements Serializable{
 	  
 			@Id 
 			@GeneratedValue(strategy = GenerationType.IDENTITY)
-		    @Column(name = "id", nullable = false, length = 80)
+		    @Column(name = "id",  length = 80)
 	        private Long id; 
 			
-		    @Column(name = "nome", nullable = false, length = 255)
+			@NotBlank(message = "{nome.not.blank}")
+		    @Column(name = "nome", length = 255)
 		    private String nome;
 		    
-		    @Column(name = "endereco", nullable = false, length = 255)
+			@NotBlank(message = "{endereco.not.blank}")
+		    @Column(name = "endereco", length = 255)
 		    private String endereco;
 		    
-		    @Column(name = "telefone", nullable = false, length = 20)
+			@NotBlank(message = "{telefone.not.blank}")
+		    @Column(name = "telefone", length = 20)
 		    private String telefone;
 		    
-		    @Column(name = "idade", nullable = false, length = 3)
+			//@NotBlank
+		    @Column(name = "idade", length = 3)
 		    private Integer idade;
 		    
-		    @Column(name = "sexo", nullable = false, length = 20)
+			@NotBlank(message = "{sexo.not.blank}")
+		    @Column(name = "sexo", length = 20)
 		    private String sexo;
 		    
-		    @Column(name = "dataCadastro", nullable = false, length = 50)
+			//@NotBlank
+		    @Column(name = "dataCadastro", length = 50)
 		    private Date dataCadastro;
 		    
-		    @Column(name = "rg", nullable = true, length = 50)
+		    
+		    @Column(name = "rg", length = 50)
 		    private String RG;
 		    
-		    @Column(name = "cpf", nullable = true, length = 3)
+		    @org.hibernate.validator.constraints.br.CPF(message = "{cpf.not.valid}")
+		    @Column(name = "cpf", length = 20)
 		    private String CPF;
 		    
-		    @Column(name = "dataNascimento", nullable = false, length = 50)
+		    @Column(name = "dataNascimento", length = 50)
 		    private Date dataNascimento;
 
-		    @Column(name = "email", nullable = true, length = 100)
+		    @Email(message = "{email.not.valid}")
+		    @Column(name = "email", length = 100)
 		    private String email;
+
+			
+		    
+		    
 
 			public Long getId() {
 				return id;
