@@ -13,28 +13,27 @@ import br.com.tecnicodelivery.repository.ClienteRepository;
 public class ClienteServices {
 	
 	@Autowired
-	ClienteRepository repository;
+	ClienteRepository clienteRepository;
 		
 	public Cliente create(Cliente cliente) {
-		return repository.save(cliente);
+		return clienteRepository.save(cliente);
 	}
 	
 	public List<Cliente> findAll() {
-		return repository.findAll();
+		return clienteRepository.findAll();
 	}	
 	
 	public Cliente findById(Long id) {
 
-		return repository.findById(id)
+		return clienteRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 	}
 		
 	public Cliente update(Cliente cliente) {
-		Cliente entity = repository.findById(cliente.getId())
+		Cliente entity = clienteRepository.findById(cliente.getId_cliente())
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 		
 		entity.setNome(cliente.getNome());
-		entity.setEndereco(cliente.getEndereco());
 		entity.setTelefone(cliente.getTelefone());
 		entity.setIdade(cliente.getIdade());
 		entity.setSexo(cliente.getSexo());
@@ -44,13 +43,13 @@ public class ClienteServices {
 		entity.setDataNascimento(cliente.getDataNascimento());
 		entity.setEmail(cliente.getEmail());
 		
-		return repository.save(entity);
+		return clienteRepository.save(entity);
 	}	
 	
 	public void delete(Long id) {
-		Cliente entity = repository.findById(id)
+		Cliente entity = clienteRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
-		repository.delete(entity);
+		clienteRepository.delete(entity);
 	}
 
 }

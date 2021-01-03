@@ -23,31 +23,31 @@ import br.com.tecnicodelivery.services.ClienteServices;
 public class ClienteController {
 	
 	@Autowired
-	private ClienteServices service;
+	private ClienteServices clienteServices;
 	
 	@GetMapping
 	public List<Cliente> findAll() {
-		return service.findAll();
+		return clienteServices.findAll();
 	}	
 	
 	@GetMapping("/{id}")
 	public Cliente findById(@PathVariable("id") Long id) {
-		return service.findById(id);
+		return clienteServices.findById(id);
 	}	
 	
 	@PostMapping
 	public Cliente create(@RequestBody @Valid Cliente cliente) {
-		return service.create(cliente);
+		return clienteServices.create(cliente);
 	}
 	
 	@PutMapping
 	public Cliente update(@RequestBody Cliente cliente) {
-		return service.update(cliente);
+		return clienteServices.update(cliente);
 	}	
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") Long id) {
-		service.delete(id);
+		clienteServices.delete(id);
 		return ResponseEntity.ok().build();
 	}	
 	
