@@ -15,6 +15,7 @@
 *.jar
 *.war
 *.ear
+bin/
 
 #Gradle temporary files
 target/
