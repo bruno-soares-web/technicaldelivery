@@ -2,23 +2,20 @@ package br.com.tecnicodelivery.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
+
 
 @Entity
 @Table(name = "cliente")
@@ -54,7 +51,7 @@ public class Cliente implements Serializable {
 	@Column(name = "rg", length = 50)
 	private String RG;
 
-	@org.hibernate.validator.constraints.br.CPF(message = "{cpf.not.valid}")
+	@CPF(message = "{cpf.not.valid}")
 	@Column(name = "cpf", length = 20)
 	private String CPF;
 
